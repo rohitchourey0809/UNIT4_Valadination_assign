@@ -3,7 +3,7 @@ const express = require('express');
 const  userscontroller = require('./controllers/user.controller');
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
 
 app.use("/users",userscontroller)
