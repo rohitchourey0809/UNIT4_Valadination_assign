@@ -8,7 +8,7 @@ pincode:{type: String, required:true},
 age:{type: Number, required:true}, 
 gender: {
       type: String,
-      enum: ["Male", "Female"],
+      // enum: ["Male", "Female"],
       default: "Male",
     }, 
    

@@ -18,6 +18,14 @@ body("last_name")
 .isEmpty()
 .withMessage("First Name cannot be Empty"),
 
+body("email")
+.trim()
+.not()
+.isEmpty()
+.withMessage("First Name cannot be Empty"),
+
+
+
 body("pincode")
 .trim()
 .not()
@@ -38,5 +46,32 @@ body("age")
   }
   return true;
 }),
-)
+
+body("gender")
+.not()
+.isEmpty()
+.withMessage("gender cannot be empty")
+// .isNumeric()
+.withMessage("Gender Male,Female or Both required"),
+
+
+
+async function(req,res){
+try{
+  const errors = validationResult(req)
+  console.log({errors})
+
+  if(!errors.isEmpty())
+  {
+    return res.status(400).send({errors:errors.array()})
+  }
+  const userdata =  await User.create(req.body)
+  console.log(userdata)
+  return res.status(201).send(userdata)
+}catch(err){{
+  res.status(500).send({errors:err.message})
+}}
+})
+
+module.exports = router
 

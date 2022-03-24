@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 
-app.use("/users",userscontroller)
+app.use("/userlink",userscontroller)
 // http://localhost:5111/users will go to usersController
 
 
